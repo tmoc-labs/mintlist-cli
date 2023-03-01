@@ -32,9 +32,9 @@ program
     "Output directory for generated tokenlists",
     "./src/tokenlists"
   )
-  .option("--overrides <string>", "Path to overrides file", "./src/overrides.json")
-  .option("--rpcUrl <string>", "Solana RPC URL. Ignored if --useEnv is true.")
-  .option("--useEnv <boolean>", "Use RPC URL from SOLANA_NETWORK env variable", false)
+  .option("--overrides <file>", "Path to overrides file", "./src/overrides.json")
+  .option("--rpcUrl <url>", "Solana RPC URL. Ignored if --useEnv is true.")
+  .option("--useEnv", "Use RPC URL from SOLANA_NETWORK env variable", false)
   .action(genTokenlist);
 
 program
