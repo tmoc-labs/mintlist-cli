@@ -27,7 +27,11 @@ program
   .command("gen-tokenlist")
   .description("Generate tokenlists from mintlists")
   .argument("<mintlist...>", "Path to mintlist file(s)")
-  .requiredOption("--outDir <string>", "Output directory for generated tokenlists")
+  .requiredOption(
+    "--outDir <string>",
+    "Output directory for generated tokenlists",
+    "./src/tokenlists"
+  )
   .option("--overrides <string>", "Path to overrides file", "./src/overrides.json")
   .option("--rpcUrl <string>", "Solana RPC URL", "https://api.mainnet-beta.solana.com")
   .action(genTokenlist);
