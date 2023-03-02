@@ -954,7 +954,7 @@
   resolved "https://registry.yarnpkg.com/@metaplex-foundation/cusper/-/cusper-0.0.2.tgz#dc2032a452d6c269e25f016aa4dd63600e2af975"
   integrity sha512-S9RulC2fFCFOQraz61bij+5YCHhSO9llJegK8c8Y6731fSi6snUSQJdCUqYS8AIgR0TKbQvdvgSyIIdbDFZbBA==
 
-"@metaplex-foundation/js@^0.18.1":
+"@metaplex-foundation/js@^0.18.3":
   version "0.18.3"
   resolved "https://registry.yarnpkg.com/@metaplex-foundation/js/-/js-0.18.3.tgz#d61d25b9e3ab91d069cd6a87fa9eb5d01ce56ed3"
   integrity sha512-rqI8vI+V5Bt3pgrv8E7leqR8gxxdw6Q/pbWg4EznbuYSmpNGRQkjMaZE0C+rQrmtQbMqUD9rUsUuYOoppSlI4A==
@@ -1086,12 +1086,12 @@
     decimal.js "^10.3.1"
     tiny-invariant "^1.2.0"
 
-"@orca-so/token-sdk@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@orca-so/token-sdk/-/token-sdk-0.1.4.tgz#11877e327667b4026be2069e3241077f4fe14955"
-  integrity sha512-HHQzbX4if9CZLLH3KyNTSsOtcflatx73bRB8qabPItUNWUF64rSK3lQeP+Ls8zOzTOrJU64BsynH5QtD9KxECQ==
+"@orca-so/token-sdk@^0.1.5-alpha.0":
+  version "0.1.5-alpha.0"
+  resolved "https://registry.yarnpkg.com/@orca-so/token-sdk/-/token-sdk-0.1.5-alpha.0.tgz#0149962b65c515a2b5f47d83a8ccc8d98af22122"
+  integrity sha512-qT9pTvuGWQHTiNQ/YNpD5QmNJ4aI+MaHbDdwELTis2nghU9as3kJnLEdLd61/uEqZIPgbv1QMTE/9RjHjU12Ig==
   dependencies:
-    "@metaplex-foundation/js" "^0.18.1"
+    "@metaplex-foundation/js" "^0.18.3"
     "@orca-so/common-sdk" "^0.1.11"
     "@project-serum/anchor" "^0.25.0"
     "@solana/spl-token" "0.1.8"
@@ -1099,6 +1099,7 @@
     decimal.js "^10.3.1"
     isomorphic-unfetch "^4.0.2"
     p-queue "6.6.2"
+    p-timeout "^4.0.0"
     tiny-invariant "^1.2.0"
 
 "@project-serum/anchor@^0.25.0", "@project-serum/anchor@~0.25.0":
@@ -4110,6 +4111,11 @@ p-timeout@^3.2.0:
   integrity sha512-rhIwUycgwwKcP9yTOOFK/AKsAopjjCakVqLHePO3CC6Mir1Z99xT+R63jZxAT5lFZLa2inS5h+ZS2GvR99/FBg==
   dependencies:
     p-finally "^1.0.0"
+
+p-timeout@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/p-timeout/-/p-timeout-4.1.0.tgz#788253c0452ab0ffecf18a62dff94ff1bd09ca0a"
+  integrity sha512-+/wmHtzJuWii1sXn3HCuH/FTwGhrp4tmJTxSKJbfS+vkipci6osxXM5mY0jUiRzWKMTgUT8l7HFbeSwZAynqHw==
 
 p-try@^2.0.0:
   version "2.2.0"
