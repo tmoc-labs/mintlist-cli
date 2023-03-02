@@ -37,7 +37,10 @@ export async function genTokenlist(paths: string[], opts: any) {
 }
 
 async function createFetcher(opts: Opts): Promise<TokenFetcher> {
-  const connection = createConnection(opts);
+  if (!process.env.SOLANA_NETWORK) {
+    throw new Error("SOLANA_NETWORK must be set");
+  }
+  const connection = new Connection(process.env.SOLANA_NETWORK);
   const fetcher = TokenFetcher.from(connection);
   if (opts.overrides) {
     fetcher.addProvider(new FileSystemProvider(MintlistFileUtil.readOverridesSync(opts.overrides)));
@@ -45,22 +48,10 @@ async function createFetcher(opts: Opts): Promise<TokenFetcher> {
   fetcher
     .addProvider(new MetaplexProvider(connection, { concurrency: 10, intervalMs: 1000 }))
     .addProvider(new SolanaFmProvider({ concurrency: 5, intervalMs: 1000 }))
-    .addProvider(new CoinGeckoProvider({ concurrency: 1, intervalMs: 1000 }));
+    .addProvider(
+      new CoinGeckoProvider({ concurrency: 1, intervalMs: 1000, apiKey: process.env.CG_API_KEY })
+    );
   return fetcher;
-}
-
-function createConnection(opts: Opts): Connection {
-  const { rpcUrl, useEnv } = opts;
-  if (useEnv) {
-    if (!process.env.SOLANA_NETWORK) {
-      throw new Error("SOLANA_NETWORK env var must be set if --useEnv is true");
-    }
-    return new Connection(process.env.SOLANA_NETWORK);
-  }
-  if (!rpcUrl) {
-    throw new Error("Must provide --rpcUrl or --useEnv");
-  }
-  return new Connection(rpcUrl);
 }
 
 function getFileName(path: string): string {
@@ -87,10 +78,8 @@ async function fetchTokenlist(fetcher: TokenFetcher, mintlist: Mintlist): Promis
 interface Opts {
   outDir: string;
   overrides?: string;
-  rpcUrl?: string;
-  useEnv: boolean;
 }
 
 function isOpts(opts: any): opts is Opts {
-  return opts !== null && typeof opts === "object" && "outDir" in opts && "useEnv" in opts;
+  return opts !== null && typeof opts === "object" && "outDir" in opts;
 }
