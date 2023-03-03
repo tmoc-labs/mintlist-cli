@@ -29,5 +29,8 @@
   },
   "bin": {
     "mintlist": "./dist/index.js"
-  }
+  },
+  "files": [
+    "/dist"
+  ]
 }
