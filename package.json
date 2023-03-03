@@ -10,22 +10,14 @@
     "mz": "^2.7.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.24",
     "@types/mz": "^2.7.4",
-    "@typescript-eslint/eslint-plugin": "^4.26.0",
-    "@typescript-eslint/parser": "^4.26.0",
-    "eslint-config-prettier": "^8.3.0",
-    "jest": "^27.0.6",
     "prettier": "^2.3.2",
     "rimraf": "^4.1.2",
-    "ts-jest": "^27.0.3",
     "typescript": "^4.5.5"
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build": "tsc",
-    "prepublish": "yarn clean && tsc",
-    "publish": "npm publish --access public"
+    "build": "tsc"
   },
   "bin": {
     "mintlist": "./dist/index.js"
